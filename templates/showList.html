@@ -1,0 +1,39 @@
+$def with (marks,shops,name)
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>$name 's mark in map</title>
+	<script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAaqsWyOXcsi-KmK_HgrqanLrvV0A0vblY&sensor=false">
+	</script>
+	<script>
+	  function initialize() {
+	    $marks
+	    var mapOptions = {
+	      zoom: 11,
+	      center: m0,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+	    var map = new google.maps.Map(document.getElementById("canvas"),mapOptions);
+	    for (mark in markers){
+	      new google.maps.Marker({position:markers[mark],map:map,title:mark});
+	    }	      
+          }	    
+	</script>
+      </head>
+      <body onload="initialize()"  style="width:100%;height:400px">
+	  <p>$name 's shop marks</p>
+	  <section>
+	  <div id="canvas" style="height:400px;width:100%">
+	  </div>
+	</section>
+	<div id='save'>
+	  $for url in shops:
+	  <div>$loop.index $url</div>
+
+	</div>
+	<script>
+	  
+	</script>
+	</body>
+</html>

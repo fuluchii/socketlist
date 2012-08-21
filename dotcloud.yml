@@ -1,0 +1,9 @@
+www:
+  type: custom
+  processes: 
+        app: /home/dotcloud/env/bin/gunicorn -k worker.GeventWorker -b 0.0.0.0:$PORT_WWW wsgi:application
+  ports:
+        www: http
+  buildscript: build
+  systempackages:
+        - libevent-dev
